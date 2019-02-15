@@ -11,7 +11,7 @@ flycheck のデフォルトで定義されている `tex-chktex` と `tex-lachec
 
 ```elisp
 (require 'flycheck-yatex)
-(add-to-list 'flycheck-chekckers 'yatex-chktex) ; use chktex
+(add-to-list 'flycheck-checkers 'yatex-chktex) ; use chktex
 ;; (add-to-list 'flycheck-checkers 'yatex-lacheck) ; use lacheck
 ```
 
