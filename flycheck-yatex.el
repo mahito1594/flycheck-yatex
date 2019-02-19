@@ -69,5 +69,8 @@ See URL `http://www.ctan.org/pkg/lacheck'."
             line-end))
   :modes yatex-mode)
 
+(add-to-list 'flycheck-checkers 'yatex-chktex)
+(add-to-list 'flycheck-checkers 'yatex-lacheck)
+
 (provide 'flycheck-yatex)
 ;;; flycheck-yatex.el ends here
