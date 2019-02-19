@@ -11,26 +11,32 @@ flycheck のデフォルトで定義されている `tex-chktex` と `tex-lachec
 
 ```elisp
 (require 'flycheck-yatex)
-(add-to-list 'flycheck-checkers 'yatex-chktex) ; use chktex
-;; (add-to-list 'flycheck-checkers 'yatex-lacheck) ; use lacheck
+
 ```
 
 と `init.el` に記述します．
+自動的に yatex-mode でチェッカが有効になります．
+もし chktex を利用したくない場合は `M-x flycheck-disable-checker RET yatex-chktex` などで無効化してください．
+lacheck についても同様です．
+詳しくは [flycheck のマニュアル](http://www.flycheck.org/en/latest/user/syntax-checkers.html#disable-syntax-checkers)を参照してください．
 
 #### With [use-package](https://github.com/jwiegley/use-package) + [straight](https://github.com/raxod502/straight.el)
 straight.el を用いてパッケージ管理している場合は `init.el` に
 
 ```elisp
+(straight-use-package
+  '(flycheck-yatex :type git :host github :repo "mahito1594/flycheck-yatex"))
+```
+
+または use-package.el を利用している場合には
+
+```elisp
 (use-package flycheck-yatex
-  :straight (:host github :repo "mahito1594/flycheck-yatex")
-  :config
-  (add-to-list 'flycheck-checkers 'yatex-chktex) ; use chktex
-  ;; (add-to-list 'flycheck-checkers 'yatex-lacheck) ; use lacheck
-  )
+  :straight (:type git :host github :repo "mahito1594/flycheck-yatex"))
 ```
 
 と書きます．
 
 ### Memo
-ChkTeX の Warning ８を無視するように設定しています．
+ChkTeX の Warning 8 を無視するように設定しています．
 また，LaTeX のインライン数式に `$...$` を用いる方はオプションに `"--nowarn=46"` を追加するのが良いかもしれません．
