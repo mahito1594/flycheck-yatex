@@ -1,5 +1,17 @@
 # flycheck-yatex
 
+### Note
+当パッケージではなく `flycheck-add-mode` 関数を使うべきでしょう．
+使い方は
+
+```elisp
+(with-eval-after-load 'flycheck
+  (flycheck-add-mode 'tex-chktex 'yatex-mode)
+  (flycheck-add-mode 'tex-lacheck 'yatex-mode))
+```
+
+とします．
+
 ### Summary
 
 [YaTeX](http://yatex.org/) のための [flycheck](https://www.flycheck.org/en/latest/) チェッカです．
